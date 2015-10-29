@@ -10,23 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TemplateSystem
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Templater.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Templater : Window
     {
-        public MainWindow() {
-            
+        public Templater()
+        {
+            InitializeComponent();
         }
 
-        private void NewTemplate_OnClick(object sender, RoutedEventArgs e) {
-            Templater newForm = new Templater();
-            newForm.Show();
+        private void ContextMenu_AddItem_OnClick(object sender, RoutedEventArgs e) {
+            ModifyItem newItem = new ModifyItem();
+            newItem.ShowDialog();
         }
     }
 }
