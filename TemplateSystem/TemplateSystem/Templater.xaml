@@ -1,0 +1,23 @@
+﻿<Window x:Class="TemplateSystem.Templater"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TemplateSystem"
+        mc:Ignorable="d"
+        Title="Templater" Height="300" Width="300"
+        Name="TemplateForm">
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Add Item" Click="ContextMenu_AddItem_OnClick"/>
+            <MenuItem Header="Edit Form" Click="ContextMenu_EditForm_OnClick"/>
+            <Separator/>
+            <MenuItem Header="Save Template" Click="ContextMenu_SaveTemplate_OnClick"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Grid>
+        
+    </Grid>
+    
+    
+</Window>

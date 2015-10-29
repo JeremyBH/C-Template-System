@@ -27,7 +27,23 @@
                 Grid.Row="0"
                 Margin="50,60,50,60"
                 Click="NewTemplate_OnClick"/>
+
+        <Button Content="Load Template"
+                Grid.Column="1"
+                Grid.Row="0"
+                Margin="50,60,50,60"
+                Click="LoadTemplate_OnClick"/>
         
+        <Button Content="Save Template"
+                Grid.Column="1"
+                Grid.Row="1"
+                Margin="50,60,50,60"
+                Click="SaveTemplate_OnClick"/>
         
+        <Label Name="currentTemplateDetails"
+               Grid.Column="0"
+               Grid.Row="1"/>
+
+
     </Grid>
 </Window>
