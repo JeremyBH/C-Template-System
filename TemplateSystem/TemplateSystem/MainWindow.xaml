@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TemplateSystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525"
+        Closing="MainWindow_OnClosing">
     <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -22,6 +23,7 @@
                HorizontalAlignment="Center"
                Content="Template Creator"
                Margin="20,20,20,20"/>
+        
         <Button Content="New Template"
                 Grid.Column="0"
                 Grid.Row="0"
@@ -40,7 +42,7 @@
                 Margin="50,60,50,60"
                 Click="SaveTemplate_OnClick"/>
         
-        <Label Name="currentTemplateDetails"
+        <Label Name="CurrentTemplateDetails"
                Grid.Column="0"
                Grid.Row="1"/>
 

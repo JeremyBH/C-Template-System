@@ -24,11 +24,19 @@ namespace TemplateSystem
     /// 
     /// TODO: Add side features first, then work on features that will effect the system.
     /// </summary>
-    public partial class Templater : Window
-    {
+    public partial class Templater : Window {
+        public TemplateItemList TemplateList;
         public Templater()
         {
             InitializeComponent();
+            TemplateList = new TemplateItemList();
+            TemplateList.Add(this, "Main Window");
+            //templateList.TemplateItems.Add(new TemplateItem<ComboBox>(new ComboBox()));
+        }
+
+        public Templater(TemplateItemList newList) {
+            InitializeComponent();
+            TemplateList = newList;
         }
 
         private void ContextMenu_AddItem_OnClick(object sender, RoutedEventArgs e) {

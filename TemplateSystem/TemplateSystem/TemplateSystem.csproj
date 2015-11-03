@@ -62,6 +62,7 @@
       <DependentUpon>StringInputWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="TemplateItemList.cs" />
+    <Compile Include="TemplateItemTypeFlag.cs" />
     <Compile Include="Templater.xaml.cs">
       <DependentUpon>Templater.xaml</DependentUpon>
     </Compile>
