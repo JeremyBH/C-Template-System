@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TemplateSystem"
         mc:Ignorable="d"
-        Title="StringInputWindow" Height="100" Width="300">
+        Title="StringInputWindow" MinHeight="100" MinWidth="300"
+        SizeToContent="WidthAndHeight">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -17,6 +18,7 @@
                  TextWrapping="Wrap"
                  AcceptsReturn="True"
                  AcceptsTab="True"
-                 Grid.Row="1"/>
+                 Grid.Row="1"
+                 Name="ContentEditor"/>
     </Grid>
 </Window>

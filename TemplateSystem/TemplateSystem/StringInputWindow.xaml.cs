@@ -26,5 +26,11 @@ namespace TemplateSystem
         {
             InitializeComponent();
         }
+
+        public StringInputWindow(string content)
+        {
+            InitializeComponent();
+            ContentEditor.Text = content;
+        }
     }
 }

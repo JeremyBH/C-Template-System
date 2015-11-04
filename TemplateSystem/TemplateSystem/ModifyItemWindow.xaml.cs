@@ -22,6 +22,7 @@ namespace TemplateSystem
     /// </summary>
     public partial class ModifyItem : Window
     {
+        string Content = "";
         public ModifyItem()
         {
             InitializeComponent();
@@ -29,7 +30,15 @@ namespace TemplateSystem
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            HelloCB.FontFamily = new FontFamily(HelloCB.SelectedItem.ToString());
+            MessageBox.Show("moo");
+        }
 
+        private void ContentButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            StringInputWindow newString = new StringInputWindow(Content);
+            newString.ShowDialog();
+            Content = newString.ContentEditor.Text;
         }
     }
 }
