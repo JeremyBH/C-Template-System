@@ -4,20 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TemplateSystem"
+        xmlns:eo="http://schemas.essentialobjects.com/wpf/"
         mc:Ignorable="d"
-        Title="Templater" Height="300" Width="300"
+        Title="Templater" Height="700" Width="1100"
+        Activated="Templater_OnActivated"
         Name="TemplateForm">
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="Add Item" Click="ContextMenu_AddItem_OnClick"/>
             <MenuItem Header="Edit Form" Click="ContextMenu_EditForm_OnClick"/>
             <Separator/>
-            <MenuItem Header="Save Template" Click="ContextMenu_SaveTemplate_OnClick"/>
         </ContextMenu>
     </Window.ContextMenu>
-    <Grid>
-        
+    <Grid Name="MainGrid">
+
+        <eo:WebControl>
+            <eo:WebControl.WebView>
+                <eo:WebView Url="google.com"/>
+            </eo:WebControl.WebView>
+        </eo:WebControl>
     </Grid>
-    
-    
+
 </Window>

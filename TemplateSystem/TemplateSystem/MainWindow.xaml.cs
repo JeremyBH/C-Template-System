@@ -23,6 +23,7 @@ namespace TemplateSystem {
             CurrentTemplateDetails.Content = "Currently Loaded: \n" +
                                              "New Document";
             WorkingForm.ShowDialog();
+            WorkingForm.ItemTree.Close();
             Show();
 
         }
@@ -42,12 +43,11 @@ namespace TemplateSystem {
             bool? result = dlg.ShowDialog();
             if (result.HasValue && result == true) {
                 string filename = dlg.FileName;
-                XmlSerializer serializer = new XmlSerializer(typeof(TemplateItemList));
+                XmlSerializer serializer = new XmlSerializer(typeof(TemplateList));
                 StreamReader reader = new StreamReader(filename);
-                TemplateItemList oldList = (TemplateItemList) serializer.Deserialize(reader);
+                TemplateList oldList = (TemplateList) serializer.Deserialize(reader);
                 WorkingForm = new Templater(oldList);
-                CurrentTemplateDetails.Content = "Currently Loaded: \n" +
-                                                 oldList.TemplateItems.Find(item => item.ItemType == TemplateItemTypeFlag.Window.ToString()).Uid;
+                reader.Close();
                 Hide();
                 WorkingForm.ShowDialog();
                 Show();
@@ -63,7 +63,7 @@ namespace TemplateSystem {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void SaveTemplate_OnClick(object sender, RoutedEventArgs e) {
-            XmlSerializer serializer = new XmlSerializer(typeof(TemplateItemList));
+            XmlSerializer serializer = new XmlSerializer(typeof(TemplateList));
             SaveFileDialog dlg = new SaveFileDialog {
                 FileName = "templateName",
                 DefaultExt = ".txml",
@@ -76,7 +76,8 @@ namespace TemplateSystem {
                 // Save document
                 string filename = dlg.FileName;
                 TextWriter writer = new StreamWriter(filename);
-                serializer.Serialize(writer, WorkingForm.TemplateList);
+                serializer.Serialize(writer, WorkingForm.ItemTree.TemplateItems);
+                writer.Close();
             }
             else MessageBox.Show("Save was not complete.");
         }

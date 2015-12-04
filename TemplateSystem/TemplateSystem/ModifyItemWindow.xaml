@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TemplateSystem"
         mc:Ignorable="d"
-        Title="ModifyItem" Height="300" Width="300">
+        Title="ModifyItem" MinHeight="340" MinWidth="350"
+        WindowStyle="ToolWindow"
+        Height="340" Width="350">
     <Grid Margin="5,5,5,5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="85*"/>
             <ColumnDefinition Width="29*"/>
-            <ColumnDefinition Width="84.8"/>
+            <ColumnDefinition Width="84*"/>
             <ColumnDefinition Width="85*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -40,7 +42,8 @@
         <ComboBox Grid.Column="2"
                   Grid.Row="0"
                   Grid.ColumnSpan="2"
-                  Margin="10,10,10,10">
+                  Margin="10,10,10,10"
+                  Name="CbItemType">
             <ComboBox.Items>
                 <ComboBoxItem Content="Text"/>
                 <ComboBoxItem Content="Bulleted List"/>
@@ -57,78 +60,19 @@
         <TextBox Grid.Column="2"
                  Grid.Row="1"
                  Grid.ColumnSpan="2"
-                 Margin="10,10,10,10">
+                 Margin="10,10,10,10"
+                 Name="TbUid">
         </TextBox>
-        <Label Content="Font: "
+        <Button Content="Edit _content"
                Grid.Column="0"
-               Grid.Row="2"/>
-        <ComboBox Grid.Column="0"
-                  Grid.Row="3" 
-                  Grid.ColumnSpan="2" 
-                  Margin="5,5,5,5"
-                  SelectionChanged = "ComboBox_SelectionChanged"
-                  Name="HelloCB">
-            
-            <ComboBox.Items>
-                <ComboBoxItem Content="Arabic"
-                              FontFamily="Arabic"/>
-                <ComboBoxItem Content="Times New Roman"
-                              FontFamily="Times New Roman"/>
-                <ComboBoxItem Content="Comic Sans MS"
-                              FontFamily="Comic Sans MS"/>
-                <ComboBoxItem Content="Impact"
-                              FontFamily="Impact"/>
-                <ComboBoxItem Content="Verdana"
-                              FontFamily="Verdana"/>
-            </ComboBox.Items>
-        </ComboBox>
-        <Button Content="Content"
-               Grid.Column="0"
+                Grid.ColumnSpan="2"
                Grid.Row="4"
                Margin="5,5,5,5"
                 Click="ContentButton_OnClick"/>
-        <GroupBox            
-            Grid.Column="0"
-            Grid.Row="5"
-            Grid.RowSpan="3"
-            Grid.ColumnSpan="2">
-            <GroupBox.Header>Grid Set</GroupBox.Header>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height ="Auto"/>
-                    <RowDefinition Height ="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
-
-                <Label Grid.Row="0"
-                       Grid.Column="0">
-                    X Value
-                </Label>
-                <TextBox Grid.Row ="0"
-                     Grid.Column ="1"
-                     Height="20"
-                     Width="20">
-                </TextBox>
-                <Label Grid.Row="1"
-                       Grid.Column="0">
-                    Y Value
-                </Label>
-                <TextBox Grid.Row ="1"
-                     Grid.Column ="1"
-                     Height="20"
-                     Width="20">
-                </TextBox>
-
-
-            </Grid>
-        </GroupBox>
 
         <GroupBox Grid.Column="2"
                           Grid.Row="3"
-                          Grid.ColumnSpan="3"
+                          Grid.ColumnSpan="2"
                           Grid.RowSpan="3">
             <GroupBox.Header>
                 Margins
@@ -148,29 +92,37 @@
                        Grid.Column="1"
                        BorderBrush="Black"
                        BorderThickness="2"
-                       VerticalAlignment="Top"
-                       HorizontalAlignment="Left">
-                    OBJECT
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center">
+                    Item
                 </Label>
                 <TextBox Grid.Column="1"
                          Grid.Row="0"
                          Height="20"
-                         Width="20"/>
+                         Width="20"
+                         Margin="5,5,5,5"
+                         Name="TbMarginTop"/>
                 <TextBox Grid.Column="2"
                          Grid.Row="1"
                          Height="20"
                          Width="20"
-                         HorizontalAlignment="Left"/>
+                         Margin="5,5,5,5"
+                         HorizontalAlignment="Left"
+                         Name="TbMaringRight"/>
                 <TextBox Grid.Column="0"
                          Grid.Row="1"
                          Height="20"
                          Width="20"
-                         HorizontalAlignment="Right"/>
+                         Margin="5,5,5,5"
+                         HorizontalAlignment="Right"
+                         Name="TbMarginLeft"/>
                 <TextBox Grid.Column="1"
                          Grid.Row="2"
                          Height="20"
                          Width="20"
-                         VerticalAlignment="Bottom"/>
+                         Margin="5,5,5,5"
+                         VerticalAlignment="Bottom"
+                         Name="TbMarginBottom"/>
             </Grid>
         </GroupBox>
         <GroupBox Grid.Column="3"
@@ -191,7 +143,8 @@
                          Grid.Column="0"
                          Height="20"
                          Width="20"
-                         HorizontalAlignment="Left"/>
+                         HorizontalAlignment="Left"
+                         Name="TbHeight"/>
                 <Label Grid.Row="0"
                        Grid.Column="0"
                        HorizontalAlignment="Center">
@@ -201,8 +154,22 @@
                          Grid.Row="0"
                          Height="20"
                          Width ="20"
-                         HorizontalAlignment="Right"/>
+                         HorizontalAlignment="Right"
+                         Name="TbWidth"/>
             </Grid>
         </GroupBox>
+        
+        <Button
+            Content="Accept"
+            Grid.Row="9"
+            Grid.Column="2"
+            Margin="5,5,5,5"
+            Click="AcceptButton_OnClick"/>
+        <Button
+            Content="Cancel"
+            Grid.Row="9"
+            Grid.Column="3"
+            Margin="5,5,5,5"
+            Click="CancelButton_OnClick"/>
     </Grid>
 </Window>

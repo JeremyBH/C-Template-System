@@ -35,8 +35,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EO.Base, Version=15.3.31.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>..\packages\EO.WebBrowser.15.3.31.0\lib\EO.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EO.WebBrowser, Version=15.3.31.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>..\packages\EO.WebBrowser.15.3.31.0\lib\EO.WebBrowser.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EO.WebBrowser.Wpf">
+      <HintPath>..\packages\EO.WebBrowser.15.3.31.0\lib\EO.WebBrowser.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.WebEngine, Version=15.3.31.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>..\packages\EO.WebBrowser.15.3.31.0\lib\EO.WebEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,17 +72,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ItemTreeView.xaml.cs">
+      <DependentUpon>ItemTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateContent.cs" />
+    <Compile Include="TemplateHandlerColumn.cs" />
+    <Compile Include="TemplateContentImage.cs" />
+    <Compile Include="TemplateHandler.cs" />
     <Compile Include="ModifyItemWindow.xaml.cs">
       <DependentUpon>ModifyItemWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="StringInputWindow.xaml.cs">
       <DependentUpon>StringInputWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TemplateItemList.cs" />
-    <Compile Include="TemplateItemTypeFlag.cs" />
+    <Compile Include="TemplateItem.cs" />
+    <Compile Include="TemplateList.cs" />
+    <Compile Include="TemplateContentText.cs" />
+    <Compile Include="TemplateHandlerMultiCol.cs" />
     <Compile Include="Templater.xaml.cs">
       <DependentUpon>Templater.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TemplateHandlerWell.cs" />
+    <Page Include="ItemTreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

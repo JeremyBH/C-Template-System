@@ -24,32 +24,37 @@ namespace TemplateSystem
     /// 
     /// TODO: Add side features first, then work on features that will effect the system.
     /// </summary>
-    public partial class Templater : Window {
-        public TemplateItemList TemplateList;
+    public partial class Templater : Window
+    {
+        public ItemTreeView ItemTree;
         public Templater()
         {
             InitializeComponent();
-            TemplateList = new TemplateItemList();
-            TemplateList.Add(this, "Main Window");
-            //templateList.TemplateItems.Add(new TemplateItem<ComboBox>(new ComboBox()));
+            ItemTree = new ItemTreeView();
         }
 
-        public Templater(TemplateItemList newList) {
+        /// <summary>
+        /// Start the template item list based off of a serialized object.
+        /// </summary>
+        /// <param name="newList"></param>
+        public Templater(TemplateList newList) {
             InitializeComponent();
-            TemplateList = newList;
+            ItemTree.TemplateItems = newList;
         }
 
         private void ContextMenu_AddItem_OnClick(object sender, RoutedEventArgs e) {
             ModifyItem newItem = new ModifyItem();
             newItem.ShowDialog();
+            
         }
 
         private void ContextMenu_EditForm_OnClick(object sender, RoutedEventArgs e) {
             
         }
 
-        private void ContextMenu_SaveTemplate_OnClick(object sender, RoutedEventArgs e) {
-            
+        private void Templater_OnActivated(object sender, EventArgs e)
+        {
+            ItemTree.Show();
         }
     }
 }

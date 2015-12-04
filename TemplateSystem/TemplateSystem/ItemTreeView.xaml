@@ -1,0 +1,23 @@
+﻿<Window x:Class="TemplateSystem.ItemTreeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TemplateSystem"
+        mc:Ignorable="d"
+        Title="ItemTreeView" Height="400" Width="200">
+    <Grid>
+        <TreeView Name="ItemTree">
+            <TreeViewItem Header="Hello">
+                <TreeViewItem Header="Hello more"/>
+            </TreeViewItem>
+            <TreeViewItem Header="Oh God">
+                <TreeViewItem Header="Motherfucker">
+                    <TreeViewItem Header="Oh god no"></TreeViewItem>
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="Help"/>
+            <TreeViewItem Header="Me Please"/>
+        </TreeView>
+    </Grid>
+</Window>

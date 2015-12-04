@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -22,23 +23,29 @@ namespace TemplateSystem
     /// </summary>
     public partial class ModifyItem : Window
     {
-        string Content = "";
+        string _content = "";
+        
+        bool acceptChange = false;
         public ModifyItem()
         {
             InitializeComponent();
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            HelloCB.FontFamily = new FontFamily(HelloCB.SelectedItem.ToString());
-            MessageBox.Show("moo");
-        }
-
         private void ContentButton_OnClick(object sender, RoutedEventArgs e)
         {
-            StringInputWindow newString = new StringInputWindow(Content);
+            StringInputWindow newString = new StringInputWindow(_content);
             newString.ShowDialog();
-            Content = newString.ContentEditor.Text;
+            _content = newString.ContentEditor.Text;
+        }
+
+        private void AcceptButton_OnClick(object sender, RoutedEventArgs e) {
+            acceptChange = true;
+            Close();
+        }
+
+        private void CancelButton_OnClick(object sender, RoutedEventArgs e) {
+            acceptChange = false;
+            Close();
         }
     }
 }
